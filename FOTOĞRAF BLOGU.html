@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotoğraf Blogu</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fafafa;
+        }
+        nav {
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: color 0.3s;
+            position: relative;
+        }
+        nav a:hover {
+            color: #ffeb3b;
+        }
+        nav a:not(:last-child)::after {
+            content: "";
+            display: inline-block;
+            width: 2px;
+            height: 20px;
+            background-color: #fff;
+            margin-left: 10px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        header {
+            padding: 30px 20px;
+            display: flex;
+            align-items: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-family: 'Times New Roman', serif;
+            color: #fff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            flex: 1;
+        }
+        h2 {
+            margin: 20px 0 10px;
+            font-size: 2em;
+            font-family: 'Times New Roman', serif;
+            text-align: left;
+            padding-left: 20px;
+        }
+        .divider {
+            border-top: 1px solid #fafafa;
+            margin: 10px 0;
+        }
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+        .large-photo {
+            width: 80%;
+            height: auto;
+            aspect-ratio: 5 / 2;
+            border: 1px solid #fafafa;
+            margin: 0 auto;
+        }
+        .small-gallery {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .small-gallery img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #fafafa;
+            transition: transform 0.3s;
+        }
+        .small-gallery img:hover {
+            transform: scale(1.05);
+        }
+        .caption {
+            text-align: center;
+            font-style: normal;
+            margin: 5px 0;
+            color: #fafafa;
+            font-size: 0.9em;
+            font-family: 'Times New Roman', serif;
+        }
+        footer {
+            background-color: #6fa3ef;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+        }
+        .contact {
+            display: none;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Times New Roman', serif;
+            color: #fafafa;
+            font-size: 1.2em;
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .about {
+            display: none;
+            padding: 20px;
+            text-align: center;
+            color: #fafafa;
+            font-family: 'Times New Roman', serif;
+            font-size: 1.5em;
+            font-style: italic;
+        }
+        .signup {
+            display: none;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Times New Roman', serif;
+            color: #fafafa;
+            font-size: 1.2em;
+        }
+        .signup input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #fafafa;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .signup button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            background-color: #6fa3ef;
+            color: #fff;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Fotoğraf Blogu</h1>
+    <nav>
+        <a href="#" onclick="showPage('home')">Anasayfa</a>
+        <a href="#" onclick="showPage('about')">Hakkında</a>
+        <a href="#" onclick="showPage('contact')">İletişim</a>
+        <a href="#" onclick="showPage('signup')">Blog Oluştur</a>
+    </nav>
+</header>
+
+<main>
+    <div id="home" class="page"> 
+        <h2>Galeri</h2>
+        <div class="divider"></div>
+        <section class="gallery">
+            <img class="large-photo" src="https://i.pinimg.com/736x/bf/4e/aa/bf4eaa44e7647807fa56239b65879bd2.jpg" alt="Deniz">
+            <div class="small-gallery">
+                <div>
+                    <img src="https://i.pinimg.com/564x/cb/ca/be/cbcabe3f2d96db5fd873792910285b4c.jpg" alt="Güzel Manzara">
+                    <div class="caption">Doğanın huzur dolu anları, ruhu dinlendiriyor.</div>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/736x/8a/74/67/8a7467d0d05aa23e1425f82b522ea8ef.jpg" alt="Güneşin Batışı">
+                    <div class="caption">Güneşin batışı, günün son ışıklarını serin bir suya yansıtıyor.</div>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/564x/f0/87/f5/f087f520e5705a430e6ee3987f824775.jpg" alt="Karla Kaplı Dağlar">
+                    <div class="caption">Karla kaplı dağların büyüleyici manzarası, kışın güzelliğini gözler önüne seriyor.</div>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/736x/7d/b1/77/7db17744de94394e26cf3b070646ed02.jpg" alt="Deniz ve Gökyüzü">
+                    <div class="caption">Deniz ve gökyüzü, bir araya geldiğinde oluşturdukları manzara ile büyüleyici bir tablo oluşturuyor.</div>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/564x/87/34/cd/8734cd79b7c785915ac2867d4852d1c2.jpg" alt="Sonbahar Manzarası">
+                    <div class="caption">Sonbaharın renkleri, doğanın en güzel resimlerinden birini oluşturuyor.</div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="about" class="about">
+        <h2>Hakkında</h2>
+        <p>Gezgin ruhlu bir kadının maceraları ve ölümsüzleştirdiği anları...</p>
+    </div>
+    <div id="contact" class="contact">
+        <h2>İletişim</h2>
+        <div class="contact-info">
+            <p> Münker Eylül Arifoğlu</p>
+            <p> 220807010</p>
+            <p> Kocaeli Üniversitesi</p>
+            <p> İletişim Fakültesi</p>
+            <p> example@example.com</p>
+            <p> +90 123 456 7890</p>
+        </div>
+    </div>
+    <div id="signup" class="signup">
+        <h2>Blog Oluştur</h2>
+        <input type="text" placeholder="Ad-Soyad">
+        <input type="text" placeholder="Email">
+        <button>Blog Oluştur</button>
+    </div>
+</main>
+
+<footer>
+    <p>Tüm Hakları Saklıdır &copy; 2024</p>
+</footer>
+
+<script>
+    function showPage(page) {
+        const pages = document.querySelectorAll('.page, .about, .contact, .signup');
+        pages.forEach(p => p.style.display = 'none');
+        if (page === 'home') {
+            document.querySelector('#home').style.display = 'block';
+        } else if (page === 'about') {
+            document.querySelector('#about').style.display = 'block';
+        } else if (page === 'contact') {
+            document.querySelector('#contact').style.display = 'block';
+        } else if (page === 'signup') {
+            document.querySelector('#signup').style.display = 'block';
+        }
+    }
+
+    
+    // Sayfa ilk açıldığında anasayfayı göster
+    showPage('home');
+</script>
+</body>
+</html>
+
+
